@@ -10,7 +10,7 @@ WORKDIR /code
 
 # Copy requirements.txt to the container and install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --verbose -r requirements.txt
 
 # Copy the rest of the code to the container
 COPY . .
