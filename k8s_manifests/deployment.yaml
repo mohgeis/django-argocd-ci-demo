@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: django-app
-        image: mgdockerid/django_dev:f6211af4693019e9e0711166e0a8dcf084b1f7c2
+        image: mgdockerid/django_dev:3795dffd42cf6506e159b18df40746a56a5c9432
         ports:
         - containerPort: 8000
