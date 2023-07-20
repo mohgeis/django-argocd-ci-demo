@@ -53,11 +53,11 @@ jobs:
 
     - name: Create Kubernetes manifests
       run: |
+        yes | cp -f k8s_templates/deployment.yaml k8s_manifests/deployment.yaml
         sed -i 's|DOCKER_IMAGE_TAG_PLACEHOLDER|${{ secrets.DOCKER_HUB_USERNAME }}/django_dev:${{ github.sha }}|' k8s_manifests/deployment.yaml
-#this should probably be updated to keep the template un-touched.
-    - name: Commit Kubernetes manifests
-      run: |
-        git config --local user.email "mohgeis@gmail.com"
-        git config --local user.name "mohgeis"
-        git commit -am "New application version"
-        git push
+
+    - name: Commit and push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
