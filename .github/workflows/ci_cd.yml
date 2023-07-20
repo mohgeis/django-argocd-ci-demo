@@ -56,8 +56,9 @@ jobs:
         sed 's|DOCKER_IMAGE_TAG_PLACEHOLDER|mgdockerid/django_dev:${{ github.sha }}|' k8s_templates/deployment.yaml > k8s_manifests/deployment.yaml
         git add k8s_manifests/deployment.yaml
 
-    - name: Commit and push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+    - name: Commit Kubernetes manifests
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "New Django app version is pushed"
+        git push
