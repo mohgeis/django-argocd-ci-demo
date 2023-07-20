@@ -53,7 +53,8 @@ jobs:
 
     - name: Create Kubernetes manifests
       run: |
-        yes | cp -f k8s_templates/deployment.yaml k8s_manifests/deployment.yaml
+        rm -f k8s_manifests/deployment.yaml
+        cp k8s_templates/deployment.yaml k8s_manifests/deployment.yaml
         sed -i 's|DOCKER_IMAGE_TAG_PLACEHOLDER|${{ secrets.DOCKER_HUB_USERNAME }}/django_dev:${{ github.sha }}|' k8s_manifests/deployment.yaml
 
     - name: Commit and push changes
