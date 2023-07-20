@@ -52,7 +52,7 @@ jobs:
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/django_dev:${{ github.sha }}
 
     - name: Create Kubernetes manifests
-      run: sed 's|DOCKER_IMAGE_TAG_PLACEHOLDER|${{ secrets.DOCKER_HUB_USERNAME }}/django_dev:${{ github.sha }}|' k8s_templates/deployment.yaml
+      run: sed 's|DOCKER_IMAGE_TAG_PLACEHOLDER|mgdockerid/django_dev:${{ github.sha }}|' k8s_templates/deployment.yaml > k8s_manifests/deployment.yaml
 
     - name: Commit and push changes
       uses: ad-m/github-push-action@master
