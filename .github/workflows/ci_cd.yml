@@ -19,6 +19,8 @@ jobs:
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
+      with:
+        platforms: all
 
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
