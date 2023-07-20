@@ -57,7 +57,7 @@ jobs:
 #this should probably be updated to keep the template un-touched.
     - name: Commit Kubernetes manifests
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "mohgeis@gmail.com"
+        git config --local user.name "mohgeis"
         git commit -am "New application version"
         git push
