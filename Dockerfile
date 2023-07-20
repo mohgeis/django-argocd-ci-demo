@@ -1,5 +1,5 @@
 # Start from a Python 3.9 base image
-FROM --platform=linux/arm64 python:3.9-slim-buster
+FROM arm64v8/python:3.9
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
