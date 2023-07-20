@@ -1,5 +1,5 @@
 # Start from a Python 3.9 base image
-FROM arm64v8/python:3.9
+FROM python:3.9-slim-buster
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -7,8 +7,6 @@ ENV PYTHONUNBUFFERED 1
 
 # Set work directory in the container
 WORKDIR /code
-
-RUN apt-get update && apt-get install -y libpq-dev build-essential
 
 # Copy requirements.txt to the container and install Python dependencies
 COPY requirements.txt .

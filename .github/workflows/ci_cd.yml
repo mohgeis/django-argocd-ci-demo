@@ -16,8 +16,6 @@ jobs:
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
-      with:
-        platforms: 'arm64,arm'
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -57,7 +55,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        platforms: linux/arm64
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/django_dev:${{ github.sha }}
 
