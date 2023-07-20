@@ -8,6 +8,8 @@ ENV PYTHONUNBUFFERED 1
 # Set work directory in the container
 WORKDIR /code
 
+RUN apt-get update && apt-get install -y libpq-dev build-essential
+
 # Copy requirements.txt to the container and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
